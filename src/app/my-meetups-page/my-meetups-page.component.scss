@@ -1,0 +1,72 @@
+.meetup {
+  width: 1362px;
+}
+
+.meetups {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+
+  .create-btn {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    max-width: 100%;
+    width: 1332px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .form-control {
+    display: flex;
+    width: 1332px;
+    justify-content: center;
+    margin: 30px;
+  }
+  input {
+    width: 1257px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 3px solid var(--secondary-color, #4c3f78);
+    background: var(--default-color, #2c2c2c);
+    color: var(--bold-color, #e9e9e9);
+
+    font-size: 18px;
+    font-family: Open Sans;
+  }
+}
+
+.btn-aquamarine {
+  border-radius: 5px;
+  background: var(--info-color, #008697);
+
+  /* BoxShadow */
+  box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+  display: flex;
+  width: 160px;
+  height: 50px;
+  border: none;
+
+  flex-shrink: 0;
+  color: var(--bold-color, #e9e9e9);
+  /* MiddText */
+  font-size: 18px;
+  font-family: Open Sans;
+}
+
+.loading {
+  color: var(--bold-color, #e9e9e9);
+  /* title */
+  font-size: 24px;
+  font-family: Cherry Bomb;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.meetup {
+  width: 1362px;
+}

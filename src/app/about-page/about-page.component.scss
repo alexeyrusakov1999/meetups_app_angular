@@ -1,0 +1,22 @@
+.about-container {
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text {
+  color: var(--primary-color, #b4b4c0);
+  /* middle */
+  font-size: 18px;
+  font-family: Open Sans;
+}
+
+h2 {
+  font-size: 22px;
+  font-family: Open Sans;
+  color: var(--primary-color, #b4b4c0);
+}

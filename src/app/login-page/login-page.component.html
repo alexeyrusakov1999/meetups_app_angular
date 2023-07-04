@@ -1,0 +1,39 @@
+<div class="form-container">
+    <form action="" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
+            {{error}}
+        </div>
+        <div class="form-control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
+            <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="validation">
+                <small *ngIf="form.get('email')?.errors?.required">
+                    Вы не ввели email
+                </small>
+                <small *ngIf="form.get('email')?.errors?.email">
+                    Введите корректный email
+                </small>
+            </div>
+            <input type="email" id="email" formControlName="email" placeholder="Login">
+
+        </div>
+        <div class="form-control" [ngClass]="{invalid: form.get('password')?.touched && form.get('password')?.invalid}">
+            <div class="validation" *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+                <small *ngIf="form.get('password')?.errors?.required">
+                    Вы не ввели пароль
+                </small>
+                <small *ngIf="form.get('password')?.errors?.minlength">
+                    Минимальная длина пароля {{form.get('password')?.errors?.minlength.requiredLength}}, а Вы ввели
+                    только
+                    {{form.get('password')?.errors?.minlength.actualLength}}
+                </small>
+            </div>
+            <input type="password" id="password" formControlName="password" placeholder="Password">
+
+        </div>
+
+        <div class="auth-down-container">
+            <a routerLink="/about">
+                <p class="form-text">How to create account?</p>
+            </a>
+            <button [disabled]="form.invalid || isRequestSend" class="btn btn-blue" type="submit">Log in</button>
+        </div>
+    </form>

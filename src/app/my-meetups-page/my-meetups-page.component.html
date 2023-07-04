@@ -1,0 +1,9 @@
+<div class="meetups" *ngIf="subscribedMeetups.length; else loading">
+    <app-meetup class="meetup" *ngFor="let meetup of subscribedMeetups" [subscribedMeetups]="subscribedMeetups"
+        [meetup]="meetup" (removeMeetup)="removeMeetup(meetup.id)"></app-meetup>
+
+</div>
+
+<ng-template #loading>
+    <h3 class="loading">Loading...</h3>
+</ng-template>

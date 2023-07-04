@@ -1,0 +1,103 @@
+<form action="" class="create-form" [formGroup]="form" (ngSubmit)="submit()">
+
+    <h3 class="create-title"> {{isEditPage? "Edit meetup" : "Create meetup"}} </h3>
+    <div class="form-control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
+        <label for="title">Название:
+        </label>
+        <input formControlName="title" class="small-input middle-input" name="" id="title" rows="1">
+        <div *ngIf="form.get('title')?.touched && form.get('title')?.invalid" class="validation">
+            <small *ngIf="form.get('title')?.errors?.required">
+                Вы не ввели email
+            </small>
+        </div>
+    </div>
+    <div class="date-container">
+        <div class="form-control" [ngClass]="{invalid: form.get('date')?.touched && form.get('date')?.invalid}">
+            <label for="date">Дата:</label><input formControlName="date" class="small-input short-input" type="date"
+                name="" id="date" cols="30" rows="10">
+            <div *ngIf="form.get('date')?.touched && form.get('date')?.invalid" class="validation">
+                <small *ngIf="form.get('date')?.errors?.required">
+                    Вы не ввели email
+                </small>
+            </div>
+        </div>
+        <div class="form-control" [ngClass]="{invalid: form.get('time')?.touched && form.get('time')?.invalid}">
+            <label for="time">Время:</label><input type="time" formControlName="time" class="small-input short-input"
+                name="" id="time" cols="30" rows="10">
+            <div *ngIf="form.get('time')?.touched && form.get('time')?.invalid" class="validation">
+                <small *ngIf="form.get('time')?.errors?.required">
+                    Вы не ввели time
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="form-control" [ngClass]="{invalid: form.get('place')?.touched && form.get('place')?.invalid}"><label
+            for="place">Место:</label><input formControlName="place" class="small-input middle-input" name="" id="place"
+            cols="30" rows="10">
+        <div *ngIf="form.get('place')?.touched && form.get('place')?.invalid" class="validation">
+            <small *ngIf="form.get('place')?.errors?.required">
+                Вы не ввели place
+            </small>
+        </div>
+    </div>
+    <div class="form-control"
+        [ngClass]="{invalid: form.get('shortDescription')?.touched && form.get('shortDescription')?.invalid}"><label
+            for="shortDescription">Короткое описание:</label><input formControlName="shortDescription" class="low-input"
+            name="shortDescription" id="shortDescription" cols="30" rows="10">
+        <div *ngIf="form.get('shortDescription')?.touched && form.get('shortDescription')?.invalid" class="validation">
+            <small *ngIf="form.get('shortDescription')?.errors?.required">
+                Вы не ввели shortDescription
+            </small>
+        </div>
+    </div>
+    <div class="form-control"
+        [ngClass]="{invalid: form.get('fullDescription')?.touched && form.get('fullDescription')?.invalid}"><label
+            for="fullDescription">Время встречи:</label><input formControlName="fullDescription" class="tall-input"
+            name="" id="fullDescription" cols="30" rows="10">
+        <div *ngIf="form.get('fullDescription')?.touched && form.get('fullDescription')?.invalid" class="validation">
+            <small *ngIf="form.get('fullDescription')?.errors?.required">
+                Вы не ввели fullDescription
+            </small>
+        </div>
+    </div>
+    <div class="form-control" [ngClass]="{invalid: form.get('fans')?.touched && form.get('fans')?.invalid}"><label
+            for="fans">Целевая аудитория:</label><input formControlName="fans" class="low-input" name="fans" id=""
+            cols="30" rows="10">
+        <div *ngIf="form.get('fans')?.touched && form.get('fans')?.invalid" class="validation">
+            <small *ngIf="form.get('fans')?.errors?.required">
+                Вы не ввели fans
+            </small>
+        </div>
+    </div>
+    <div class="form-control" [ngClass]="{invalid: form.get('knowledge')?.touched && form.get('knowledge')?.invalid}">
+        <label for="knowledge">Что надо знать:</label><input formControlName="knowledge" class="tall-input" name=""
+            id="knowledge" cols="30" rows="10">
+        <div *ngIf="form.get('knowledge')?.touched && form.get('knowledge')?.invalid" class="validation">
+            <small *ngIf="form.get('knowledge')?.errors?.required">
+                Вы не ввели knowledge
+            </small>
+        </div>
+    </div>
+    <div class="form-control" [ngClass]="{invalid: form.get('future')?.touched && form.get('future')?.invalid}">
+        <label for="">Что будет:</label><input formControlName="future" name="future" id="" cols="30" rows="10">
+        <div *ngIf="form.get('future')?.touched && form.get('future')?.invalid" class="validation">
+            <small *ngIf="form.get('future')?.errors?.required">
+                Вы не ввели future
+            </small>
+        </div>
+    </div>
+    <div class="form-control" [ngClass]="{invalid: form.get('reasons')?.touched && form.get('reasons')?.invalid}">
+        <label for="reasons">Почему надо обязательно прийти:</label><input formControlName="reasons" class="low-input"
+            name="reasons" id="reasons" cols="30" rows="10">
+        <div *ngIf="form.get('reasons')?.touched && form.get('reasons')?.invalid" class="validation">
+            <small *ngIf="form.get('reasons')?.errors?.required">
+                Вы не ввели reasons
+            </small>
+        </div>
+    </div>
+    <div class="create-btn-container">
+        <button class="btn btn-orange" (click)="resetForm()">Удалить</button>
+        <button class="btn btn-grey" (click)="goToPreviousPage()">Отмена</button>
+        <button class="btn btn-blue" type="submit" [disabled]="form.invalid">Сохранить</button>
+    </div>
+</form>

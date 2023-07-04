@@ -1,0 +1,13 @@
+<div class="meetups" *ngIf="meetups.length; else loading">
+    <div class="form-control">
+        <input placeholder="Введите заголовок для поиска..." type="text" [(ngModel)]="searchTitle">
+    </div>
+    <app-meetup class="meetup" *ngFor="let meetup of meetups | search: searchTitle" [meetup]="meetup"></app-meetup>
+    <div class="create-btn">
+        <button class="btn btn-aquamarine" [routerLink]="['/create']">Создать митап</button>
+    </div>
+</div>
+
+<ng-template #loading>
+    <h3 class="loading">Loading...</h3>
+</ng-template>
