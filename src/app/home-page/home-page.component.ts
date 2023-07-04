@@ -29,7 +29,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.mSub = this.meetupsService.getAll().subscribe(
       (meetups: IMeetupResponse[]) => {
         this.meetups = meetups;
-        console.log(this.meetups);
       },
       (error) => {
         console.error(error);

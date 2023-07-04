@@ -52,6 +52,16 @@ export class MeetupComponent implements OnInit {
     }
   }
 
+  isFinished(): boolean {
+    const meetupTime = new Date(this.meetup.time);
+    const currentTime = new Date();
+    if (currentTime > meetupTime) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   toggleSubsAndRemoveFromMyMeetups(meetupId: number | undefined, meetup: any) {
     this.toggleSubscription(meetupId, meetup);
     this.removeMyMeetup(meetupId);

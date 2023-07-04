@@ -10,6 +10,14 @@
   margin-top: 5px;
 }
 
+p {
+  margin: 0;
+  color: var(--accent-color, #b85526);
+  /* middle */
+  font-size: 18px;
+  font-family: Open Sans;
+}
+
 .btn-grey {
   border-radius: 5px;
   background: var(--primary-color, #b4b4c0);
@@ -33,7 +41,7 @@ button {
 .button {
   background-color: #ccc;
 
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .button.btn-grey {
@@ -44,6 +52,24 @@ button {
   background: var(--secondary-color, #4c3f78);
 }
 
-// .button.normal-btn {
-//   color: #000;
-// }
+.check-time {
+  margin: 0;
+  color: var(--accent-color, #b85526);
+  /* middle */
+  font-size: 18px;
+  font-family: Open Sans;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.author-name {
+  margin-top: auto;
+
+  margin-left: 5px;
+}
+
+.author-img {
+  margin-top: auto;
+}

@@ -1,4 +1,4 @@
-<div class="text-container">
+<div class="text-container" [ngClass]="{'opacity': isFinished()}">
     <div class="up-side-main">
         <div class="left-side">
             <div class="text-part-main">
@@ -34,22 +34,25 @@
         <div class="right-side">
             <div class="upper-container">
                 <p class="date">{{ meetup.time | date: 'dd.MM.yy HH:mm' }}</p>
-                <p class="room">{{ meetup.location }}</p>
+
+                <p class="check-time" *ngIf="isFinished()">Проведено</p>
+
+                <p class="room" *ngIf="!isFinished()">{{ meetup.location }}</p>
             </div>
         </div>
     </div>
     <div class="down-side-main">
         <div class="down-side">
             <div class="author-field">
-                <img src="../assets/person-btn.svg" alt="">
+                <img class="author-img" src="../assets/person-btn.svg" alt="">
                 <p class="author-name">{{meetup.owner.fio}}</p>
             </div>
             <div class=" btn-text-container">
                 <button (click)="onEditMeetup(meetup)" class="btn btn-blue normal-btn" [routerLink]="'edit/'+ meetup.id"
                     *ngIf="isAdmin(); else visit">Редактировать</button>
                 <ng-template #visit>
-                    <button (click)="toggleSubsAndRemoveFromMyMeetups(meetup.id, meetup)" class="button"
-                        [ngClass]="{'btn-grey normal-btn': isSub, 'btn-blue normal-btn': !isSub }">{{
+                    <button [disabled]="isFinished()" (click)="toggleSubsAndRemoveFromMyMeetups(meetup.id, meetup)"
+                        class="button" [ngClass]="{'btn-grey normal-btn': isSub, 'btn-blue normal-btn': !isSub }">{{
                         isSub? "Не могу пойти" :
                         "Я пойду"}}</button>
                 </ng-template>
